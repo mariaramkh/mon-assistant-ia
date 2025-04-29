@@ -1,15 +1,11 @@
 import os
 import streamlit as st
 
-# Obtenir le bon port
+# Obtenir le port fourni par Render (ou 8501 par défaut en local)
 port = int(os.environ.get("PORT", 8501))
 
-# Redirection vers la page d'accueil
-st.switch_page("pages/0_Accueil.py")
+# Configuration de la page
+st.set_page_config(page_title="Mon Assistant IA")
 
-# Lancer Streamlit correctement
-if __name__ == "__main__":
-    import streamlit.web.cli as stcli
-    import sys
-    sys.argv = ["streamlit", "run", "app.py", "--server.port", str(port)]
-    sys.exit(stcli.main())
+# Redirige vers la page d'accueil
+st.switch_page("pages/0_Accueil.py")
